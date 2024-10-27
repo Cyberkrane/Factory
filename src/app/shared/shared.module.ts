@@ -9,10 +9,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 // Components
 import { HeaderComponent } from './components/header/header.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   exports:[
     HeaderComponent,
+    SpinnerComponent,
     
     MatSidenavModule,
     MatListModule,
