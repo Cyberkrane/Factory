@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
+import { TablaProductsComponent } from './components/tabla-products/tabla-products.component';
 
 
 @NgModule({
   declarations: [
-    InventoryComponent
+    InventoryComponent,
+    TablaProductsComponent
   ],
   imports: [
     CommonModule,

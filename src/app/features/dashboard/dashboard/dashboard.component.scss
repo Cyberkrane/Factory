@@ -1,6 +1,12 @@
 .sidenav-container{
-    width: 220px;
     height: 90%;
     padding: 10px;
     margin-top: 2px;
+}
+
+mat-sidenav-content{
+    padding: 10px;
+    margin-top: 2px;
+    height: 90%;
+    width: 100%;
 }
