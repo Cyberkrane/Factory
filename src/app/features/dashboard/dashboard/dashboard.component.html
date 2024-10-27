@@ -1,12 +1,15 @@
 <mat-sidenav-container class="sidenav-container">
-  
+
     <mat-sidenav mode="side" opened>
      
         <mat-nav-list class="d-flex flex-column gap-1 mb-3">
           <b class="text-primary">Gestión de Inventario</b>
-          <a mat-list-item routerLink="/">Registro de productos</a>
+          <a mat-list-item routerLink="/inventory" matTooltip="Lsitado de productos" matTooltipPosition="above">
+            Inventario
+          </a>
+          <!-- <a mat-list-item routerLink="/registerForm"  matTooltip="Formulario para el registro de productos" matTooltipPosition="above">Registro de productos</a>
           <a mat-list-item routerLink="/" matTooltip="entradas y salidas" matTooltipPosition="above">Control de stock</a>
-          <a mat-list-item routerLink="/">Alertas de reabastecimiento</a>
+          <a mat-list-item routerLink="/">Alertas de reabastecimiento</a> -->
         </mat-nav-list>
   
         <!-- <mat-nav-list class="d-flex flex-column gap-1 mb-3">
@@ -22,10 +25,17 @@
            <a mat-list-item routerLink="/">Actualización automática de estados</a>
            <a mat-list-item routerLink="/" matTooltip="aviso a usuarios de estado de envíos" matTooltipPosition="above">Notificaciones</a>
         </mat-nav-list> -->
+
+        <mat-nav-list>
+          <button (click)="spinnerToggle()">Toggle Spinner</button>
+        </mat-nav-list>
+
   
     </mat-sidenav>
   
     <mat-sidenav-content>
+
       <router-outlet></router-outlet>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
