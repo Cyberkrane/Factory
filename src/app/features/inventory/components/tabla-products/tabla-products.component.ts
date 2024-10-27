@@ -1,54 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../../interfaces/product.interface';
+import { ProductsService } from '../../services/products.service';
+import { timer } from 'rxjs';
+import { SpinnerStore } from 'src/app/core/stores/spinner.store.service';
+
 
 @Component({
   selector: 'app-tabla-products',
   templateUrl: './tabla-products.component.html',
   styleUrls: ['./tabla-products.component.scss']
 })
-export class TablaProductsComponent {
+export class TablaProductsComponent implements OnInit {
 
-  public  productos: IProduct[] = [];
+  public ELEMENT_DATA: IProduct[] = [];
+  public displayedColumns: string[] = ['name','price','stock','description','category'];
+  public dataSource = this.ELEMENT_DATA;
 
-  constructor() {
+  constructor(
+      private readonly productsService: ProductsService,
+      private readonly spinnerStore: SpinnerStore
+    ) {}
 
-  this.productos = [
-    {
-      id: 1,
-      name: 'Cerveza',
-      price: 120,
-      stock: 10,
-      description: 'Cerveza lata',
-      category: 'Bebidas',
-      image: ''
-    },
-    {
-      id: 2,
-      name: 'Papas',
-      price: 300,
-      stock: 5,
-      description: 'Papas fritas',
-      category: 'Comida',
-      image: ''
-    },
-    {
-      id: 3,
-      name: 'Galletas',
-      price: 200,
-      stock: 15,
-      description: 'Galletas de chocolate',
-      category: 'Comida',
-      image: ''
-    },
-    {
-      id: 4,
-      name: 'Coca Cola',
-      price: 200,
-      stock: 20,
-      description: 'Coca Cola 2L',
-      category: 'Bebidas',
-      image: ''
-    }
-  ];
+  ngOnInit(): void {
+    this.showAllProducts();
   }
+
+  showAllProducts() {
+
+    this.spinnerStore.setLoading(true);
+
+    timer(1500).subscribe(() => {
+      this.spinnerStore.setLoading(false);
+      this.productsService.getAllProducts().subscribe(products => {
+      this.dataSource = products
+    })
+    })
+    
+  }
+
 }

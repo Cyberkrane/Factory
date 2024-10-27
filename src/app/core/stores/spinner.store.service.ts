@@ -1,5 +1,3 @@
-// src/app/features/dashboard/stores/spinner.store.ts
-
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 
@@ -15,7 +13,6 @@ export class SpinnerStore extends ComponentStore<SpinnerState> {
 
   // Selector para obtener el estado del spinner
   readonly isLoading$ = this.select(state => {
-    state.isLoading
     return state.isLoading
   });
 

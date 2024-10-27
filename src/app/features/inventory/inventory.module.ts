@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
 import { TablaProductsComponent } from './components/tabla-products/tabla-products.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { TablaProductsComponent } from './components/tabla-products/tabla-produc
   ],
   imports: [
     CommonModule,
-    InventoryRoutingModule
+    InventoryRoutingModule,
+    SharedModule
   ],
   exports: [
     InventoryComponent

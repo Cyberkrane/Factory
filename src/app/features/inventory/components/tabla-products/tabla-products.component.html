@@ -1,21 +1,32 @@
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Stock</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let producto of productos">
-            <td>{{ producto.id }}</td>
-            <td>{{ producto.name }}</td>
-            <td>{{ producto.description }}</td>
-            <td>{{ producto.stock }}</td>
-            <td>
-                <a [routerLink]="['/edit', producto.id]">Editar</a>
-            </td>
-        </tr>
-</table>
+<table mat-table [dataSource]="dataSource"  class="mat-elevation-z8"> 
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Precio </th>
+      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef> Stock </th>
+      <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Categoría </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

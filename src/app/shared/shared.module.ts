@@ -8,6 +8,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 // Components
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -24,7 +25,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatTreeModule,
     MatTooltipModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   exports:[
     HeaderComponent,
@@ -35,7 +37,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     MatTreeModule,
     MatTooltipModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }
