@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { SpinnerStore } from 'src/app/core/stores/spinner.store.service';
+import { Component } from '@angular/core';
+import { SpinnerStore } from 'src/app/core/stores/spinner.store.service'; // Usa la instancia en core
 
 @Component({
   selector: 'app-spinner',
+  // template: `<div *ngIf="isLoading$ | async" class="spinner">Loading...</div>`,
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.scss']
 })
-export class SpinnerComponent implements OnInit {
+export class SpinnerComponent {
+  isLoading$ = this.spinnerStore.isLoading$;
 
-  // Observa el estado del spinner desde SpinnerStore
-  public isLoading$ = this.spinnerStore.isLoading$;
-
-  constructor(private readonly spinnerStore: SpinnerStore) {}
-
-  ngOnInit(): void {
-  console.log("spinner");
-  }
-
+  constructor(private spinnerStore: SpinnerStore) {}
 }

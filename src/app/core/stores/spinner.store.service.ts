@@ -1,4 +1,5 @@
-// src/app/core/stores/spinner.store.ts
+// src/app/features/dashboard/stores/spinner.store.ts
+
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 
@@ -8,23 +9,25 @@ interface SpinnerState {
 
 @Injectable()
 export class SpinnerStore extends ComponentStore<SpinnerState> {
-  // Estado inicial
   constructor() {
-    super({ isLoading: false });
+    super({ isLoading: false }); // Estado inicial
   }
 
-  // Selector para observar el estado de carga
-  readonly isLoading$ = this.select((state) => state.isLoading);
+  // Selector para obtener el estado del spinner
+  readonly isLoading$ = this.select(state => {
+    state.isLoading
+    return state.isLoading
+  });
 
-  // Actualizador para mostrar el spinner
-  readonly showSpinner = this.updater((state) => ({
+  // Actualizador para cambiar el estado del spinner
+  readonly setLoading = this.updater((state, isLoading: boolean) => ({
     ...state,
-    isLoading: true,
+    isLoading,
   }));
 
-  // Actualizador para ocultar el spinner
-  readonly hideSpinner = this.updater((state) => ({
+  // Método para alternar el estado del spinner
+  readonly toggleLoading = this.updater((state) => ({
     ...state,
-    isLoading: false,
+    isLoading: !state.isLoading,
   }));
 }
